@@ -50,10 +50,10 @@ jobs:
           node-version: 14.x
 
       - name: Install dependenies
-        run: npm install
+        run: yarn install
 
       - name: Build page
-        run: npm run build
+        run: yarn build
         env:
           NODE_ENV: production
 
