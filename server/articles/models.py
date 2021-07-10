@@ -9,4 +9,4 @@ class Article(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
     checked = models.BooleanField(default=False)
-
+    is_update_form = models.BooleanField(default=False)
