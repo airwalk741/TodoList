@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <div v-if="!todo.is_update_form"> 
       <div>
         title : {{ todo.title }}
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TodoUpdateForm from '@/components/TodoUpdateForm.vue'
+import TodoUpdateForm from '@/components/Todo/TodoUpdateForm.vue'
 import axios from 'axios'
 const url = process.env.VUE_APP_URL
 
@@ -56,4 +56,13 @@ export default {
 
 }
 </script>
+
+
+<style>
+  .box {
+    box-sizing: content-box;
+    border: solid #5B6DCD 10px;
+    padding: 3rem;
+  }
+</style>
 

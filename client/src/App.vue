@@ -1,12 +1,32 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <NavBar />
     <router-view/>
   </div>
 </template>
+
+<script>
+import NavBar from '@/components/NavBar.vue'
+import axios from 'axios'
+const url = process.env.VUE_APP_URL
+
+export default {
+  components: {
+    NavBar
+  },
+  created: async function () {
+
+    const res = await axios({
+      url: `${url}/articles/`,
+      method: 'GET',
+    })
+
+    this.$store.dispatch('todoList', res.data)
+    
+  },
+}
+</script>
+
 
 <style>
 #app {
@@ -26,7 +46,5 @@
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+
 </style>
